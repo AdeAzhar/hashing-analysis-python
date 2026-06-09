@@ -5,20 +5,30 @@ def main():
     size = 10
     Hash = Hashing(size)
 
-    Hash.insert_data("Joko", "Mahasiswa")
-    Hash.insert_data("Agus", "Guru")
-    Hash.insert_data("Lutpi", "Exp")
-    Hash.insert_data("Tony stark", "Bilioner")
-    Hash.insert_data("Joko", "Manusia")
-    Hash.insert_data("Ucok", "Pengusaha")
-    Hash.insert_data("Timoti", "Pemegang saham")
-    Hash.insert_data("Jokopi", "Pengusaha")
-    Hash.insert_data("Joko", "Sigma")
+    data_insert_test = [
+        ("Joko", "Mahasiswa"),
+        ("Agus", "Guru"),
+        ("Lutpi", "Exp"),
+        ("Tony stark", "Bilioner"),
+        ("Joko", "Manusia"),    
+        ("Ucok", "Pengusaha"),
+        ("Timoti", "Pemegang saham"),
+        ("Jokopi", "Pengusaha"),
+        ("Joko", "Sigma")
+    ]
 
-    print(f"Cari 'Joko' : {Hash.search_data('Joko')}")   
-    print(f"Cari 'Ucok' : {Hash.search_data('Ucok')}")   
-    print(f"Cari 'Lutpi' : {Hash.search_data('Lutpi')}")  
-    print(f"Total data tersimpan: {Hash.count}\n")
+    print("--- Insert Data Test ---")
+    for key, val in data_insert_test:
+        Hash.insert_data(key, val)
+        print(f"Inserted: {key} -> {val}")
+
+    print("\n--- Search Data Test ---")
+    keys_to_search = ["Joko", "Ucok", "Tony stark", "Agus", "Budi"] 
+    
+    for key in keys_to_search:
+        result = Hash.search_data(key)
+        print(f"Cari '{key}': {result}")
+    print("")
 
     analysis = PerformanceAnalysis()
     analysis.analysis_time()
