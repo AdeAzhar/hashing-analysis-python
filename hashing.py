@@ -27,13 +27,9 @@ class Hashing:
 
     def search_data(self, key):
         index = self.hash_function(key)
-
-        start_search_data = time.perf_counter()
         for pair in self.table[index]:
             if pair[0] == key:
-                end_search_data = time.perf_counter()
-                time_result = end_search_data - start_search_data
-                return pair[1], time_result
+                return pair[1]
         
         return None
     

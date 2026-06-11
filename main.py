@@ -5,7 +5,7 @@ def main():
     Hash = Hashing(size)
 
     data_insert_test = [
-        ("Andi", "Staff"), ("Budi", "Manager"), ("Citra", "CEO"), ("Dewi", "CTO"), ("Eko", "COO"),
+        ("Andi", "Staff"), ("Andi", "Manager"), ("Citra", "CEO"), ("Dewi", "CTO"), ("Eko", "COO"),
         ("Fani", "Staff"), ("Gita", "Developer"), ("Hadi", "Designer"), ("Indah", "Analyst"), ("Joko", "QA"),
         ("Kiki", "Manager"), ("Lina", "Staff"), ("Miko", "DevOps"), ("Nina", "HR"), ("Oscar", "Finance"),
         ("Putri", "Staff"), ("Qori", "Marketing"), ("Rian", "Support"), ("Sari", "Developer"), ("Tono", "Manager"),
@@ -23,11 +23,11 @@ def main():
         print(f"Inserted: {key}\t -> {val}")
 
     print("\n--- Search Data Test ---")
-    keys_to_search = ["Jihan", "Putri", "Umar"] 
+    keys_to_search = ["Jihan", "Putri", "Andi"] 
     
     for key in keys_to_search:
-        value, time_result = Hash.search_data(key)
-        print(f"Cari '{key}': {value} \t waktu pencarian {time_result:.8f} detik")
+        value = Hash.search_data(key)
+        print(f"Key '{key}': Value '{value}'")
     print("")
 
     Hash.view_hash_table()
