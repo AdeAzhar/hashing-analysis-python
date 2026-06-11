@@ -6,7 +6,6 @@ class Hashing:
         self.table = []
         self.count = 0
         self.chaining()
-        self.time = None
 
     def chaining(self):
         for _ in range(self.size):
