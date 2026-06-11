@@ -1,38 +1,36 @@
 from hashing import Hashing
-from performance_analysis import PerformanceAnalysis
 
 def main():
-    size = 10
+    size = 71
     Hash = Hashing(size)
 
     data_insert_test = [
-        ("Joko", "Mahasiswa"),
-        ("Agus", "Guru"),
-        ("Lutpi", "Exp"),
-        ("Tony stark", "Bilioner"),
-        ("Joko", "Manusia"),    
-        ("Ucok", "Pengusaha"),
-        ("Timoti", "Pemegang saham"),
-        ("Jokopi", "Pengusaha"),
-        ("Joko", "Sigma")
+        ("Andi", "Staff"), ("Budi", "Manager"), ("Citra", "CEO"), ("Dewi", "CTO"), ("Eko", "COO"),
+        ("Fani", "Staff"), ("Gita", "Developer"), ("Hadi", "Designer"), ("Indah", "Analyst"), ("Joko", "QA"),
+        ("Kiki", "Manager"), ("Lina", "Staff"), ("Miko", "DevOps"), ("Nina", "HR"), ("Oscar", "Finance"),
+        ("Putri", "Staff"), ("Qori", "Marketing"), ("Rian", "Support"), ("Sari", "Developer"), ("Tono", "Manager"),
+        ("Ulya", "Staff"), ("Vina", "Researcher"), ("Wawan", "Designer"), ("Xena", "Intern"), ("Yuni", "Staff"),
+        ("Zaki", "Manager"), ("Ahmad", "QA"), ("Bella", "Developer"), ("Caca", "Staff"), ("Dedi", "CEO"),
+        ("Elsa", "Analyst"), ("Fajar", "Staff"), ("Gani", "Marketing"), ("Hana", "Designer"), ("Iwan", "Developer"),
+        ("Jihan", "Staff"), ("Kevin", "Manager"), ("Lulu", "HR"), ("Maya", "Finance"), ("Naufa", "Staff"),
+        ("Oki", "DevOps"), ("Pia", "Researcher"), ("Rendi", "QA"), ("Siska", "Developer"), ("Tara", "Staff"),
+        ("Umar", "Manager"), ("Vera", "Marketing"), ("Windi", "Designer"), ("Xavi", "Intern"), ("Yudi", "Staff")
     ]
 
     print("--- Insert Data Test ---")
     for key, val in data_insert_test:
         Hash.insert_data(key, val)
-        print(f"Inserted: {key} -> {val}")
+        print(f"Inserted: {key}\t -> {val}")
 
     print("\n--- Search Data Test ---")
-    keys_to_search = ["Joko", "Ucok", "Tony stark", "Agus", "Budi"] 
+    keys_to_search = ["Jihan", "Putri", "Umar"] 
     
     for key in keys_to_search:
-        result = Hash.search_data(key)
-        print(f"Cari '{key}': {result}")
+        value, time_result = Hash.search_data(key)
+        print(f"Cari '{key}': {value} \t waktu pencarian {time_result:.8f} detik")
     print("")
 
-    analysis = PerformanceAnalysis()
-    analysis.analysis_time()
-
+    Hash.view_hash_table()
 
 if __name__ == "__main__":
     main()
