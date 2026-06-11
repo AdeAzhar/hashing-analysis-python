@@ -28,8 +28,8 @@ def main():
     for key in keys_to_search:
         value = Hash.search_data(key)
         print(f"Key '{key}': Value '{value}'")
-    print("")
-
+    
+    print("\n--- Hash Table ---")
     Hash.view_hash_table()
 
 if __name__ == "__main__":
